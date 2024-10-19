@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { type Message as IMessage } from "ai/react";
 import { BotIcon, UserIcon } from "lucide-react";
@@ -23,6 +16,7 @@ const Messages = ({ messages }: MessagesProps) => {
     <div className="flex flex-col gap-3">
       {messages.map((message: IMessage) => (
         <Card
+          key={message.id}
           className={cn("bg-purple-50 border border-purple-400", {
             "bg-emerald-50 border border-emerald-400": message.role === "user",
           })}
